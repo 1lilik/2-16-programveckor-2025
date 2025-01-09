@@ -15,11 +15,19 @@ public class Kontroll : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += new Vector3(3, 0, 0) * Time.deltaTime;
+            transform.position += new Vector3(4, 0, 0) * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += new Vector3(-3, 0, 0) * Time.deltaTime;
+            transform.position += new Vector3(-4, 0, 0) * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += new Vector3(0, 4, 0) * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position += new Vector3(0, -4, 0) * Time.deltaTime;
         }
     }
 }
