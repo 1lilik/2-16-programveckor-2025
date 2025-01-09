@@ -9,13 +9,13 @@ public class EnemyMovement : MonoBehaviour
     float chaseRange;
     float dieRange;
     GameObject player;
-    tempmove controller;
+    Kontroll controller;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<tempmove>();
+        controller = GetComponent<Kontroll>();
         player = GameObject.Find("Player");
     }
 
