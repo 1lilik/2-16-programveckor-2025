@@ -7,11 +7,12 @@ public class LifeManagement : MonoBehaviour
     Rigidbody2D Player;
     int Lives = 3;
 
-
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         Player = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class LifeManagement : MonoBehaviour
         if (collision.gameObject.tag == ("Enemy"))
         {
             Lives -= 1;
+            audioSource.Play();
             if (Lives == 0)
             {
                 Destroy(gameObject);
