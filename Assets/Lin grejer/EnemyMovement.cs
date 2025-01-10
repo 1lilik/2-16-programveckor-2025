@@ -5,41 +5,20 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    float speed;
-    float chaseRange;
-    float dieRange;
-    GameObject player;
-    Kontroll controller;
+    Transform Target;
+    public float speed = 3f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<Kontroll>();
-        player = GameObject.Find("Player");
+        Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player == null)
-        {
-            return;
-        }
+        transform.position = Vector2.MoveTowards(transform.position, Target.position, speed * Time.deltaTime);
 
-        float range = Vector3.Distance(player.transform.position, transform.position);
-        
-        if (range <= dieRange)
-        {
-
-            //Temp tags (player loses life)
-        }
-
-        else if(range <= chaseRange)
-        {
-            transform.LookAt(player.transform);
-            Vector3 vector3 = transform.TransformDirection(Vector3.forward);
-            
-        }
     }
 }
