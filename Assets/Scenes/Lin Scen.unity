@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 200851228}
   - component: {fileID: 200851230}
   - component: {fileID: 200851231}
+  - component: {fileID: 200851232}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -186,7 +187,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.31016502, g: 0.8037735, b: 0.20473468, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -205,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 200851224}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: -4, z: 0}
+  m_LocalPosition: {x: -5.79, y: -3.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -307,6 +308,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4823ecfe80af7b84db86e6204c90398d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Lives: 3
+--- !u!114 &200851232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200851224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491fd3db02da330429e75f9a148c75e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 2242269725851809290, guid: 87e6a8eb67c82ec4ab947f00c48ef541, type: 3}
+  AmountOfBullets: 0
 --- !u!1 &268979696
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +445,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 260854537804535745, guid: cd260573422ff37428c562c0ee9e2499, type: 3}
+  RandomAmountEnemies: 0
+  Enemies: []
 --- !u!4 &476338271
 Transform:
   m_ObjectHideFlags: 0
@@ -438,7 +456,7 @@ Transform:
   m_GameObject: {fileID: 476338269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28529567, y: 2.0624273, z: 3.3494506}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -456,7 +474,7 @@ GameObject:
   - component: {fileID: 591378138}
   m_Layer: 0
   m_Name: Leftwall
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -533,7 +551,7 @@ GameObject:
   - component: {fileID: 984225256}
   m_Layer: 0
   m_Name: Downwall
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -645,7 +663,7 @@ GameObject:
   - component: {fileID: 1643174552}
   m_Layer: 0
   m_Name: Rightwall
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -722,7 +740,7 @@ GameObject:
   - component: {fileID: 1853284757}
   m_Layer: 0
   m_Name: Upwall
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

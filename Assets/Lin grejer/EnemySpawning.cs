@@ -5,26 +5,43 @@ using UnityEngine;
 public class EnemySpawning : MonoBehaviour
 {
     public GameObject EnemyPrefab;
-
-   
+    public int RandomAmountEnemies;
+    public List<GameObject> Enemies;
 
     // Start is called before the first frame update
     void Start()
     {
         
-
-        int RandomAmountEnemies = Random.Range(1, 6);
+        //Gör så att en slumässig mängd fiender spawnar på samma gång 
+        RandomAmountEnemies = Random.Range(1, 6);
         for (int i = 0; i < RandomAmountEnemies; i++)
         {
+            //Gör så att varje fiende spawnar på olika ställen 
             int RandomY = Random.Range(-4, 4);
             int RandomX = Random.Range(-10, 10);
             Instantiate(EnemyPrefab, new Vector2(RandomX,RandomY), Quaternion.identity);
+            //Lägger till alla fiender som instantíateades i en lista
+            Enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
         }
-
+        
     }
     // Update is called once per frame
     void Update()
+    {   //Om alla fiender är döda skrivs det ut ett meddelande i loggen
+        if (RandomAmountEnemies == 0)
+        {
+            Debug.Log("Alla fiender är döda");
+        }
+    }
+
+    //Om en fiende blir träffad tas den bort från listan och förstörs och int:en för mängden fiender som spawnades sänks med 1
+    public void OnEnemyHit(GameObject Enemy)
     {
-        
+        if (Enemies.Contains(Enemy))
+        {
+            Enemies.Remove(Enemy);
+            Destroy(Enemy);
+            RandomAmountEnemies -= 1;
+        }
     }
 }
