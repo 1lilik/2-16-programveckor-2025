@@ -7,13 +7,14 @@ public class PlayerShooting : MonoBehaviour
 {  
     public GameObject Projectile;
     public bool AllowToShoot;
-    
+    public Transform shootpoint;
+    float ProjectileSpeed = 10f;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        AllowToShoot = true;
+        
         
     }
 
@@ -22,11 +23,14 @@ public class PlayerShooting : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && AllowToShoot == true)
         {
-            Instantiate(Projectile, transform.position, Quaternion.identity);
+            GameObject projectile = Instantiate(Projectile, shootpoint.position, transform.rotation);
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            rb.velocity = transform.up * ProjectileSpeed;
             AllowToShoot = false;
             
         }
         
     }
-    
+
+   
 }

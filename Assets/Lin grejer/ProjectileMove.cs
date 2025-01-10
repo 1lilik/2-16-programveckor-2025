@@ -21,7 +21,7 @@ public class ProjectileMove : MonoBehaviour
     void Update()
     {
         //När en projectile instantiateas börjar den röra på sig
-        transform.position += new Vector3(10, 0, 0) * Time.deltaTime;
+                    //transform.position += new Vector3(10, 0, 0) * Time.deltaTime;
         //Minskar tiden som projectilen är levande tills den är lika med eller mindre än 0, då förstörs den
         ProjMaxAliveTime -= Time.deltaTime;
         if (ProjMaxAliveTime <=0)
