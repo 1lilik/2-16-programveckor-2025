@@ -86,9 +86,7 @@ public class Player
 
         private bool KontroleraOmPowerUpHarSamlat()
         {
-
-
-            return false;
+             return false;
         }
 
         public void PlayerAtack()
@@ -96,7 +94,6 @@ public class Player
             int DamageGjort = player.GörSkada();
             Console.WriteLine($"Player gör{DamageGjort}Skada");
         }
-
 
     }
 
@@ -112,4 +109,8 @@ public class Player
         }
     }
     //check
+
+
+
+
 }
