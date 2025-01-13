@@ -8,11 +8,9 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< Updated upstream
-       
-=======
+
         transform.position = new Vector3(0, 2, 0);
->>>>>>> Stashed changes
+
 
     }
 
