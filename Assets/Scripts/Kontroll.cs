@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Kontroll : MonoBehaviour
 {
-    float MoveSpeed = 5f;
+    public float MoveSpeed = 2f;
     
     // Start is called before the first frame update
     void Start()
@@ -18,26 +18,28 @@ public class Kontroll : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W) || (Input.GetKey(KeyCode.UpArrow)))
         {
-            RotateAndMove(0);
+            Rotate(90);
+            transform.position += new Vector3(0,1,0) * MoveSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A)|| (Input.GetKey(KeyCode.LeftArrow)))
         {
-            RotateAndMove(90);
+            Rotate(180);
+            transform.position += new Vector3(-1,0,0) * MoveSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S)|| (Input.GetKey(KeyCode.DownArrow)))
         {
-            RotateAndMove(180);
+            Rotate(-90);
+            transform.position += new Vector3(0,-1,0) * MoveSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)))
         {
-            RotateAndMove(-90);
+            Rotate(0);
+            transform.position += new Vector3(1,0,0) * MoveSpeed * Time.deltaTime;
         }
     }
-    void RotateAndMove(float angle)
+    void Rotate(float angle)
     {
        
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        transform.position += transform.up * MoveSpeed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, 0, angle); 
     }
 }

@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawning : MonoBehaviour
+public class EnemySpawningWaves : MonoBehaviour
 {
     public GameObject EnemyPrefab;
     public int RandomAmountEnemies;
     public List<GameObject> Enemies;
+    int RandomAmountWaves;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
         //Gör så att en slumässig mängd fiender spawnar på samma gång 
+        RandomAmountWaves = Random.Range(1, 4);
+
+
+        /*
         RandomAmountEnemies = Random.Range(1, 6);
         for (int i = 0; i < RandomAmountEnemies; i++)
         {
@@ -23,14 +28,36 @@ public class EnemySpawning : MonoBehaviour
             //Lägger till alla fiender som instantíateades i en lista
             Enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
         }
-        
+        */
+
+
+
     }
     // Update is called once per frame
     void Update()
-    {   //Om alla fiender är döda skrivs det ut ett meddelande i loggen
-        if (RandomAmountEnemies == 0)
+    {   //Om alla fiender är döda skrivs det ut ett meddelande i loggen (kommer ändras när vi fixar alla rummen ordentligt)
+
+        for (int a = 0; a < RandomAmountWaves; a++)
         {
-            Debug.Log("Alla fiender är döda");
+
+
+            if (RandomAmountEnemies == 0)
+            {
+                RandomAmountEnemies = Random.Range(1, 6);
+                for (int i = 0; i < RandomAmountEnemies; i++)
+                {
+                    //Gör så att varje fiende spawnar på olika ställen 
+                    int RandomY = Random.Range(-4, 4);
+                    int RandomX = Random.Range(-10, 10);
+                    Instantiate(EnemyPrefab, new Vector2(RandomX, RandomY), Quaternion.identity);
+                    //Lägger till alla fiender som instantíateades i en lista
+                    Enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+                }
+
+
+                Debug.Log("Alla fiender är döda");
+
+            }
         }
     }
 

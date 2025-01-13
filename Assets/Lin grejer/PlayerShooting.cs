@@ -14,7 +14,7 @@ public class PlayerShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        AllowToShoot = true;
         
     }
 
@@ -25,7 +25,7 @@ public class PlayerShooting : MonoBehaviour
         {
             GameObject projectile = Instantiate(Projectile, shootpoint.position, transform.rotation);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            rb.velocity = transform.up * ProjectileSpeed;
+            rb.velocity = transform.right * ProjectileSpeed;
             AllowToShoot = false;
             
         }
