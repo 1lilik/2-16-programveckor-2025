@@ -20,8 +20,6 @@ public class ProjectileMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //När en projectile instantiateas börjar den röra på sig
-                    //transform.position += new Vector3(10, 0, 0) * Time.deltaTime;
         //Minskar tiden som projectilen är levande tills den är lika med eller mindre än 0, då förstörs den
         ProjMaxAliveTime -= Time.deltaTime;
         if (ProjMaxAliveTime <=0)
@@ -30,23 +28,22 @@ public class ProjectileMove : MonoBehaviour
             playershooting.AllowToShoot = true;
             Destroy(gameObject);
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == ("Enemy"))
         {
+            
             //Meddelar Enemyspawning skriptet att en fiende blivit träffad av en projectile
             EnemySpawningWaves enemyManager = FindObjectOfType<EnemySpawningWaves>();
             enemyManager.OnEnemyHit(collision.gameObject);
             PlayerShooting playershooting = FindObjectOfType<PlayerShooting>();
             playershooting.AllowToShoot = true;
-            //förstör projectilen som träffade fienden
+            //förstör projektilen som träffade fienden
             Destroy(gameObject);
-            
         }
-        //om projectilen träffar väggen förstörs den
+        //Om projectilen träffar väggen förstörs den
         if (collision.gameObject.tag == ("Border"))
         {
             PlayerShooting playershooting = FindObjectOfType<PlayerShooting>();

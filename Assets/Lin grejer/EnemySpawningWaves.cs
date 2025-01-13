@@ -8,39 +8,21 @@ public class EnemySpawningWaves : MonoBehaviour
     public int RandomAmountEnemies;
     public List<GameObject> Enemies;
     int RandomAmountWaves;
+    int WaveNumber = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
         //Gör så att en slumässig mängd fiender spawnar på samma gång 
-        RandomAmountWaves = Random.Range(1, 4);
-
-
-        /*
-        RandomAmountEnemies = Random.Range(1, 6);
-        for (int i = 0; i < RandomAmountEnemies; i++)
-        {
-            //Gör så att varje fiende spawnar på olika ställen 
-            int RandomY = Random.Range(-4, 4);
-            int RandomX = Random.Range(-10, 10);
-            Instantiate(EnemyPrefab, new Vector2(RandomX,RandomY), Quaternion.identity);
-            //Lägger till alla fiender som instantíateades i en lista
-            Enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
-        }
-        */
-
-
-
+        RandomAmountWaves = Random.Range(1,4);
     }
+
     // Update is called once per frame
     void Update()
     {   //Om alla fiender är döda skrivs det ut ett meddelande i loggen (kommer ändras när vi fixar alla rummen ordentligt)
 
-        for (int a = 0; a < RandomAmountWaves; a++)
+        if (WaveNumber <= RandomAmountWaves)
         {
-
-
             if (RandomAmountEnemies == 0)
             {
                 RandomAmountEnemies = Random.Range(1, 6);
@@ -50,14 +32,18 @@ public class EnemySpawningWaves : MonoBehaviour
                     int RandomY = Random.Range(-4, 4);
                     int RandomX = Random.Range(-10, 10);
                     Instantiate(EnemyPrefab, new Vector2(RandomX, RandomY), Quaternion.identity);
+
                     //Lägger till alla fiender som instantíateades i en lista
                     Enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
                 }
-
-
-                Debug.Log("Alla fiender är döda");
-
+                WaveNumber += 1;
+                
             }
+        }
+
+        if (RandomAmountEnemies == 0 && WaveNumber == 0)
+        {
+            Debug.Log("Alla fiender är döda och alla waves är avklarade");
         }
     }
 
