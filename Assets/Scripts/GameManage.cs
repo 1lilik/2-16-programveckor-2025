@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI; // Add this to use Image components
 
 public class GameManage : MonoBehaviour
 {
-    public GameObject[] objects; 
+    public GameObject[] objects;
     private GameObject correctObject;
-    public int lives = 3; 
-    public TextMeshProUGUI livesText; 
+    public int lives = 3;
+    public TextMeshProUGUI livesText;
     public TextMeshProUGUI feedbackText;
 
-    private float feedbackDisplayTime = 2f; 
+    public Image[] lifeIcons; // Drag the 3 UI Image objects representing lives
+    public Sprite heartSprite; // Assign your "heart" sprite here
+    public Sprite brokenHeartSprite; // Assign your "broken heart" sprite here
+
+    private float feedbackDisplayTime = 2f;
     private Coroutine feedbackCoroutine;
 
     void Start()
@@ -24,7 +29,7 @@ public class GameManage : MonoBehaviour
     {
         int randomIndex = Random.Range(0, objects.Length);
         correctObject = objects[randomIndex];
-        Debug.Log("Correct Object: " + correctObject.name); 
+        Debug.Log("Correct Object: " + correctObject.name);
     }
 
     public void ObjectInteracted(GameObject interactedObject)
@@ -33,7 +38,7 @@ public class GameManage : MonoBehaviour
         {
             Debug.Log("Correct choice! You survived!");
             ShowFeedback("Correct!", Color.green);
-            AssignCorrectObject();
+            AssignCorrectObject(); // Assign a new correct object
         }
         else
         {
@@ -45,6 +50,8 @@ public class GameManage : MonoBehaviour
             if (lives <= 0)
             {
                 Debug.Log("Game Over!");
+                ShowFeedback("You die!", Color.red);
+                // Additional game over logic can go here
             }
         }
     }
@@ -69,6 +76,20 @@ public class GameManage : MonoBehaviour
 
     void UpdateLivesUI()
     {
+        // Update the life icons
+        for (int i = 0; i < lifeIcons.Length; i++)
+        {
+            if (i < lives)
+            {
+                lifeIcons[i].sprite = heartSprite; // Show heart sprite for remaining lives
+            }
+            else
+            {
+                lifeIcons[i].sprite = brokenHeartSprite; // Show broken heart for lost lives
+            }
+        }
+
+        // Optional: Update the text-based lives display
         if (livesText != null)
         {
             livesText.text = "Lives: " + lives;
