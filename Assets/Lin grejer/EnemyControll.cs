@@ -10,7 +10,7 @@ public class EnemyControll : MonoBehaviour
     public float speed = 3f;
     bool AllowWalk;
     public float Pausetime;
-    
+    public int lives = 3;
 
 
     // Start is called before the first frame update
@@ -45,7 +45,11 @@ public class EnemyControll : MonoBehaviour
         else if(collision.gameObject.tag == ("PlayerProjectile"))
         {
             //Om fienden nuddar en projectile förstörs fienden
-            Destroy(gameObject);
+            lives -= 1;
+            if (lives <= 0) 
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -53,4 +57,10 @@ public class EnemyControll : MonoBehaviour
     {
         AllowWalk = true;
     }
+
+    public void TakeDamage()
+    {
+
+    }
+
 }

@@ -38,7 +38,7 @@ public class ProjectileMove : MonoBehaviour
         if (collision.gameObject.tag == ("Enemy"))
         {
             //Meddelar Enemyspawning skriptet att en fiende blivit träffad av en projectile
-            EnemySpawning enemyManager = FindObjectOfType<EnemySpawning>();
+            EnemySpawningWaves enemyManager = FindObjectOfType<EnemySpawningWaves>();
             enemyManager.OnEnemyHit(collision.gameObject);
             PlayerShooting playershooting = FindObjectOfType<PlayerShooting>();
             playershooting.AllowToShoot = true;
@@ -53,5 +53,6 @@ public class ProjectileMove : MonoBehaviour
             playershooting.AllowToShoot = true;
             Destroy(gameObject);
         }
+       
     }
 }
