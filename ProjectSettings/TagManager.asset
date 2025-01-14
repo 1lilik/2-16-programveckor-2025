@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - PlayerProjectile
   - Border
+  - NoKillEnemy
   layers:
   - Default
   - TransparentFX
