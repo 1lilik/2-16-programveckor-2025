@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro; 
-public class GameManager : MonoBehaviour
+public class TextFeedback : MonoBehaviour
 {
     public TextMeshProUGUI feedbackText; 
 }

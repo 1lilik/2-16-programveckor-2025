@@ -5,7 +5,6 @@ public class Movement : MonoBehaviour
     public float moveSpeed = 5f;
 
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -14,7 +13,7 @@ public class Movement : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
 
     void Update()
     {

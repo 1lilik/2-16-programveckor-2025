@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Add this to use Image components
+using UnityEngine.UI; 
+
 
 public class GameManage : MonoBehaviour
 {
@@ -12,9 +13,9 @@ public class GameManage : MonoBehaviour
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI feedbackText;
 
-    public Image[] lifeIcons; // Drag the 3 UI Image objects representing lives
-    public Sprite heartSprite; // Assign your "heart" sprite here
-    public Sprite brokenHeartSprite; // Assign your "broken heart" sprite here
+    public Image[] lifeIcons; 
+    public Sprite heartSprite;  
+    public Sprite brokenHeartSprite;  
 
     private float feedbackDisplayTime = 2f;
     private Coroutine feedbackCoroutine;
@@ -38,7 +39,7 @@ public class GameManage : MonoBehaviour
         {
             Debug.Log("Correct choice! You survived!");
             ShowFeedback("Correct!", Color.green);
-            AssignCorrectObject(); // Assign a new correct object
+            AssignCorrectObject();
         }
         else
         {
@@ -51,7 +52,7 @@ public class GameManage : MonoBehaviour
             {
                 Debug.Log("Game Over!");
                 ShowFeedback("You die!", Color.red);
-                // Additional game over logic can go here
+               
             }
         }
     }
@@ -76,20 +77,20 @@ public class GameManage : MonoBehaviour
 
     void UpdateLivesUI()
     {
-        // Update the life icons
+     
         for (int i = 0; i < lifeIcons.Length; i++)
         {
             if (i < lives)
             {
-                lifeIcons[i].sprite = heartSprite; // Show heart sprite for remaining lives
+                lifeIcons[i].sprite = heartSprite;
             }
             else
             {
-                lifeIcons[i].sprite = brokenHeartSprite; // Show broken heart for lost lives
+                lifeIcons[i].sprite = brokenHeartSprite;
             }
         }
 
-        // Optional: Update the text-based lives display
+       
         if (livesText != null)
         {
             livesText.text = "Lives: " + lives;
