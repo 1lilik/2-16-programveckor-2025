@@ -5,12 +5,10 @@ using UnityEngine;
 public class EnemySpawningWaves : MonoBehaviour
 {
     public GameObject EnemyPrefab;
-    public int RandomAmountEnemies;
+    int RandomAmountEnemies;
     public List<GameObject> Enemies;
     int RandomAmountWaves;
     int WaveNumber = 0;
-
-    
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +19,10 @@ public class EnemySpawningWaves : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   //Om alla fiender är döda skrivs det ut ett meddelande i loggen (kommer ändras när vi fixar alla rummen ordentligt)
+    {   
 
         if (WaveNumber <= RandomAmountWaves)
         {
- 
             if (RandomAmountEnemies == 0)
             {
                 RandomAmountEnemies = Random.Range(1, 6);
@@ -33,7 +30,7 @@ public class EnemySpawningWaves : MonoBehaviour
                 WaveNumber += 1;
             }
         }
-
+        //Om alla fiender är döda skrivs det ut ett meddelande i loggen (kommer ändras när vi fixar alla rummen ordentligt)
         if (RandomAmountEnemies == 0 && RandomAmountWaves == WaveNumber)
         {
             Debug.Log("Alla fiender är döda och alla waves är avklarade");
@@ -53,9 +50,6 @@ public class EnemySpawningWaves : MonoBehaviour
 
     public void SpawnWave()
     {
-        
-
-
         for (int i = 0; i < RandomAmountEnemies; i++)
         {
             //Gör så att varje fiende spawnar på olika ställen 

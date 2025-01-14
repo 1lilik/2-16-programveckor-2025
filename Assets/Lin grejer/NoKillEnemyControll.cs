@@ -5,7 +5,7 @@ using UnityEngine;
 public class NoKillEnemyControll : MonoBehaviour
 {
     public Transform Target;
-    public float speed = 3f;
+    float speed = 3f;
     bool AllowWalk;
     public float Pausetime;
     Rigidbody2D rb;
@@ -21,7 +21,7 @@ public class NoKillEnemyControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // kollar om fienden nuddat spelaren, om inte får fienden röra på sig
+        //Kollar om fienden nuddat spelaren, om inte får fienden röra på sig
         if (AllowWalk == true)
         {
             //Fienden rör sig konststant mot spelarens position
@@ -36,15 +36,14 @@ public class NoKillEnemyControll : MonoBehaviour
         {
             AllowWalk = false;
             Invoke("EnemyPause", Pausetime);
-
-            
-        }
-        if (collision.gameObject.tag == ("PlayerProjectile"))
+        } 
+        //Gör så att fienderna inte puttas bakåt om de blir nuddade av skotten
+        //Innan detta tillägg började fienderna åka bakåt om de blev träffade av ett skott och de fortsatte tills de träffade väggen
+        if (collision.gameObject.tag == ("PlayerProjectile") || collision.gameObject.tag == ("NoKillEnemy"))
         {
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        
     }
 
     public void EnemyPause()

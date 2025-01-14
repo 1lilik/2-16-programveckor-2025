@@ -11,6 +11,7 @@ public class EnemyControll : MonoBehaviour
     bool AllowWalk;
     public float Pausetime;
     public int lives = 3;
+    public Animator Animator;
 
 
     // Start is called before the first frame update
@@ -28,7 +29,8 @@ public class EnemyControll : MonoBehaviour
         if (AllowWalk == true)
         {
             //Fienden rör sig konststant mot spelarens position
-            transform.position = Vector2.MoveTowards(transform.position, Target.position, speed * Time.deltaTime);   
+            transform.position = Vector2.MoveTowards(transform.position, Target.position, speed * Time.deltaTime);
+            Animator.Play("Enemy1_walking");
         }
     }
 

@@ -20,8 +20,6 @@ public class ProjectileMove : MonoBehaviour
     void Update()
     {
         //Minskar tiden som projectilen är levande tills den är lika med eller mindre än 0, då förstörs de
-        
-
         ProjMaxAliveTime -= Time.deltaTime;
         if (ProjMaxAliveTime <=0)
         {
@@ -50,6 +48,7 @@ public class ProjectileMove : MonoBehaviour
             playershooting.AllowToShoot = true;
             Destroy(gameObject);
         }
+        //Om projektilen nuddar en odödlig fiende förstörs projektilen
         if (collision.gameObject.tag == ("NoKillEnemy"))
         {
             PlayerShooting playershooting = FindObjectOfType<PlayerShooting>();
