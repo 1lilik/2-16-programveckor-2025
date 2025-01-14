@@ -7,7 +7,6 @@ using UnityEngine;
 public class ProjectileMove : MonoBehaviour
 {
     Rigidbody2D rb;
-    public GameObject enemy;
     public float ProjMaxAliveTime = 1;
 
     // Start is called before the first frame update
@@ -20,7 +19,9 @@ public class ProjectileMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Minskar tiden som projectilen är levande tills den är lika med eller mindre än 0, då förstörs den
+        //Minskar tiden som projectilen är levande tills den är lika med eller mindre än 0, då förstörs de
+        
+
         ProjMaxAliveTime -= Time.deltaTime;
         if (ProjMaxAliveTime <=0)
         {
@@ -34,17 +35,22 @@ public class ProjectileMove : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Enemy"))
         {
-            
             //Meddelar Enemyspawning skriptet att en fiende blivit träffad av en projectile
             EnemySpawningWaves enemyManager = FindObjectOfType<EnemySpawningWaves>();
             enemyManager.OnEnemyHit(collision.gameObject);
             PlayerShooting playershooting = FindObjectOfType<PlayerShooting>();
             playershooting.AllowToShoot = true;
-            //förstör projektilen som träffade fienden
+            //Förstör projektilen som träffade fienden
             Destroy(gameObject);
         }
         //Om projectilen träffar väggen förstörs den
         if (collision.gameObject.tag == ("Border"))
+        {
+            PlayerShooting playershooting = FindObjectOfType<PlayerShooting>();
+            playershooting.AllowToShoot = true;
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == ("NoKillEnemy"))
         {
             PlayerShooting playershooting = FindObjectOfType<PlayerShooting>();
             playershooting.AllowToShoot = true;

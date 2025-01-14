@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LifeManagement : MonoBehaviour
@@ -29,6 +30,15 @@ public class LifeManagement : MonoBehaviour
         {
             Lives -= 1;
             //audioSource.Play(); //Spelaren dog inte när audio-sourcen var aktiv pga att det inte fanns något ljud att spela
+            if (Lives == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        if (collision.gameObject.tag == ("NoKillEnemy"))
+        {
+            Lives -= 1;
+
             if (Lives == 0)
             {
                 Destroy(gameObject);

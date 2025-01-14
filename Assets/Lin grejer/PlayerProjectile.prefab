@@ -161,5 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7592aece40d13904d831664185b4d040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 260854537804535745, guid: cd260573422ff37428c562c0ee9e2499, type: 3}
   ProjMaxAliveTime: 1

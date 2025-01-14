@@ -28,10 +28,8 @@ public class EnemyControll : MonoBehaviour
         if (AllowWalk == true)
         {
             //Fienden rör sig konststant mot spelarens position
-            transform.position = Vector2.MoveTowards(transform.position, Target.position, speed * Time.deltaTime);
-            
+            transform.position = Vector2.MoveTowards(transform.position, Target.position, speed * Time.deltaTime);   
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)

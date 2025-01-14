@@ -8,12 +8,14 @@ public class NoKillEnemyControll : MonoBehaviour
     public float speed = 3f;
     bool AllowWalk;
     public float Pausetime;
+    Rigidbody2D rb;
    
     // Start is called before the first frame update
     void Start()
     {
         Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         AllowWalk = true;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -34,7 +36,15 @@ public class NoKillEnemyControll : MonoBehaviour
         {
             AllowWalk = false;
             Invoke("EnemyPause", Pausetime);
+
+            
         }
+        if (collision.gameObject.tag == ("PlayerProjectile"))
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        
     }
 
     public void EnemyPause()
