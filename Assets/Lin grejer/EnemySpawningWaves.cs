@@ -29,18 +29,7 @@ public class EnemySpawningWaves : MonoBehaviour
             if (RandomAmountEnemies == 0)
             {
                 RandomAmountEnemies = Random.Range(1, 6);
-                
-
-                for (int i = 0; i < RandomAmountEnemies; i++)
-                {
-                    //Gör så att varje fiende spawnar på olika ställen 
-                    int RandomY = Random.Range(-4, 4);
-                    int RandomX = Random.Range(-10, 10);
-                    Instantiate(EnemyPrefab, new Vector2(RandomX, RandomY), Quaternion.identity);
-
-                    //Lägger till alla fiender som instantíateades i en lista
-                    Enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
-                }
+                Invoke("SpawnWave", 1);
                 WaveNumber += 1;
             }
         }
@@ -59,6 +48,23 @@ public class EnemySpawningWaves : MonoBehaviour
             Enemies.Remove(Enemy);
             Destroy(Enemy);
             RandomAmountEnemies -= 1;
+        }
+    }
+
+    public void SpawnWave()
+    {
+        
+
+
+        for (int i = 0; i < RandomAmountEnemies; i++)
+        {
+            //Gör så att varje fiende spawnar på olika ställen 
+            int RandomY = Random.Range(-4, 4);
+            int RandomX = Random.Range(-10, 10);
+            Instantiate(EnemyPrefab, new Vector2(RandomX, RandomY), Quaternion.identity);
+
+            //Lägger till alla fiender som instantíateades i en lista
+            Enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
         }
     }
 }
