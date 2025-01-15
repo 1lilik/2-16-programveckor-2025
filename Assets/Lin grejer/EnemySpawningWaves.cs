@@ -11,6 +11,7 @@ public class EnemySpawningWaves : MonoBehaviour
     public int RandomAmountWaves;
     public int WaveNumber = 0;
     public TextMeshProUGUI EnemyCountText;
+    public int Damage = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +50,7 @@ public class EnemySpawningWaves : MonoBehaviour
         if (Enemies.Contains(Enemy))
         {
             EnemyControll enemyControll = Enemy.GetComponent<EnemyControll>();
-            enemyControll.lives -= 1;
+            enemyControll.lives -= Damage;
 
             if (enemyControll.lives <= 0)
             {
