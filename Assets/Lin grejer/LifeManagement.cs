@@ -7,6 +7,7 @@ public class LifeManagement : MonoBehaviour
 {
     Rigidbody2D Player;
     public int Lives = 3;
+    public GameObject Particle;
 
     private AudioSource audioSource;
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class LifeManagement : MonoBehaviour
             //audioSource.Play(); //Spelaren dog inte när audio-sourcen var aktiv pga att det inte fanns något ljud att spela
             if (Lives == 0)
             {
+                Instantiate(Particle, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
@@ -41,6 +43,7 @@ public class LifeManagement : MonoBehaviour
 
             if (Lives == 0)
             {
+                Instantiate(Particle, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
