@@ -8,7 +8,7 @@ public class EnemyControll : MonoBehaviour
 {
     public Transform Target;
     float speed = 3f;
-    bool AllowWalk;
+    public bool AllowWalk;
     public int lives = 3;
     public Animator Animator;
     Rigidbody2D Rigidbody;
