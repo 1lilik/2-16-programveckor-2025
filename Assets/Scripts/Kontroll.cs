@@ -19,17 +19,17 @@ public class Kontroll : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || (Input.GetKey(KeyCode.UpArrow)))
         {
             Rotate(90);
-            transform.position += new Vector3(0,1,0) * MoveSpeed * Time.deltaTime;
+            transform.position += new Vector3(0,1,0) * MoveSpeed * Time.deltaTime;           
         }
         if (Input.GetKey(KeyCode.A)|| (Input.GetKey(KeyCode.LeftArrow)))
         {
             Rotate(180);
-            transform.position += new Vector3(-1,0,0) * MoveSpeed * Time.deltaTime;
+            transform.position += new Vector3(-1,0,0) * MoveSpeed * Time.deltaTime;         
         }
         if (Input.GetKey(KeyCode.S)|| (Input.GetKey(KeyCode.DownArrow)))
         {
             Rotate(-90);
-            transform.position += new Vector3(0,-1,0) * MoveSpeed * Time.deltaTime;
+            transform.position += new Vector3(0,-1,0) * MoveSpeed * Time.deltaTime;           
         }
         if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)))
         {
@@ -41,4 +41,5 @@ public class Kontroll : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(0, 0, angle); 
     }
+   
 }
