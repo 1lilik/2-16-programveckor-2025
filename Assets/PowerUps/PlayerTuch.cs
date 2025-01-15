@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,8 +20,10 @@ public class PlayerTuch : MonoBehaviour
     }
 
     void Update()
-    {   
+    {
+
     }
+
 
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -31,7 +32,16 @@ public class PlayerTuch : MonoBehaviour
         {
             if (!IsActivate)
             {
-                StartCoroutine(SpeedBoost());
+                int RandomN = Random.Range(0, 100);
+                if (RandomN < 50)
+                {
+                    StartCoroutine(SpeedBoost());
+                }
+                else
+                {
+                    StartCoroutine(DoubleDamage());
+                }
+               
             }
             Destroy(other.gameObject);
         }
@@ -42,12 +52,20 @@ public class PlayerTuch : MonoBehaviour
         isBoosted = true;
         controll.MoveSpeed = SpeedBost;
 
-       yield return new WaitForSeconds(SpeedDuration);
+        yield return new WaitForSeconds(SpeedDuration);
 
         controll.MoveSpeed = NormalSpeed;
         isBoosted = false;
 
     }
 
+    private IEnumerator DoubleDamage()
+    {
+        EnemySpawningWaves ESW = FindObjectOfType<EnemySpawningWaves>();
+        ESW.Damage = 2;
 
+        yield return new WaitForSeconds(SpeedDuration);
+
+        ESW.Damage = 1;
+    }
 }
