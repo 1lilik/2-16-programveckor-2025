@@ -14,12 +14,12 @@ public class Playerattacker : MonoBehaviour
 
     private void Update()
     {
-        if(timeUntilMelee <= 0f)
+        if(timeUntilMelee <= 0f) //Trycker man på vänster musknapp så svingar man svärdet
         {
             if (Input.GetMouseButtonDown(0))
             {
                 anim.SetTrigger("Trigger");
-                timeUntilMelee = meleeSpeed;
+                timeUntilMelee = meleeSpeed; //Cooldown på att svinga med svärdet
             }
         }
         else
@@ -29,7 +29,7 @@ public class Playerattacker : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy")
+        if(other.tag == "Enemy")   //Gör så att svärdet kan döda fiender
         {
             EnemySpawningWaves enemyManager = FindObjectOfType<EnemySpawningWaves>();
             enemyManager.OnEnemyHit(other.gameObject);
