@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,11 @@ public class GameManager : MonoBehaviour
     private int emptyLocation;
     private int size;
     private bool shuffling = false;
+    private bool hasWon = false; // Tracks if the player has won.
+
+    public TextMeshProUGUI Countdown;
+    public float CountdownTime = 60;
+    private float CurrentTime;
 
     // Create the game setup with size x size pieces.
     private void CreateGamePieces(float gapThickness)
@@ -59,16 +65,23 @@ public class GameManager : MonoBehaviour
         pieces = new List<Transform>();
         size = 3;
         CreateGamePieces(0.01f);
+        CurrentTime = CountdownTime;
+
+        // Shuffle the game board at the start.
+        Shuffle();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (hasWon) return; // Stop updating if the player has already won.
+
         // Check for completion.
-        if (!shuffling && CheckCompletion())
+        if (CheckCompletion())
         {
-            shuffling = true;
-            StartCoroutine(WaitShuffle(0.5f));
+            hasWon = true; // Set the hasWon flag.
+            StartCoroutine(DisplayWinMessage()); // Display "YOU WON!" for 10 seconds.
+            return;
         }
 
         // On click send out ray to see if we click a piece.
@@ -91,6 +104,16 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
+        }
+
+        if (CurrentTime > 0)
+        {
+            CurrentTime -= Time.deltaTime;
+            Countdown.text = "Time left: " + Mathf.Ceil(CurrentTime).ToString();
+        }
+        else if (CurrentTime <= 0 && !hasWon)
+        {
+            Countdown.text = "YOU LOST!";
         }
     }
 
@@ -121,6 +144,21 @@ public class GameManager : MonoBehaviour
             }
         }
         return true;
+    }
+
+    private IEnumerator DisplayWinMessage()
+    {
+        Countdown.text = "YOU WON!";
+        yield return new WaitForSeconds(10000f); // Wait for 10 seconds.
+        RestartGame(); // Restart the game after displaying the win message.
+    }
+
+    private void RestartGame()
+    {
+        hasWon = false; // Reset the win flag.
+        CurrentTime = CountdownTime; // Reset the countdown timer.
+        Shuffle(); // Shuffle the puzzle again.
+        Countdown.text = "Time left: " + Mathf.Ceil(CurrentTime).ToString();
     }
 
     private IEnumerator WaitShuffle(float duration)
@@ -162,3 +200,4 @@ public class GameManager : MonoBehaviour
         }
     }
 }
+
