@@ -36,6 +36,8 @@ public class ProjectileMove : MonoBehaviour
             //Meddelar Enemyspawning skriptet att en fiende blivit träffad av en projectile
             EnemySpawningWaves enemyManager = FindObjectOfType<EnemySpawningWaves>();
             enemyManager.OnEnemyHit(collision.gameObject);
+
+
             PlayerShooting playershooting = FindObjectOfType<PlayerShooting>();
             playershooting.AllowToShoot = true;
             //Förstör projektilen som träffade fienden

@@ -7,11 +7,11 @@ using UnityEngine;
 public class EnemyControll : MonoBehaviour
 {
     public Transform Target;
-    public float speed = 3f;
+    float speed = 3f;
     bool AllowWalk;
-    public float Pausetime;
     public int lives = 3;
     public Animator Animator;
+    Rigidbody2D Rigidbody;
 
 
     // Start is called before the first frame update
@@ -20,6 +20,7 @@ public class EnemyControll : MonoBehaviour
         //Sätter target som objektet som har "Player" taggen på sig
         Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         AllowWalk = true;
+        Rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -40,16 +41,13 @@ public class EnemyControll : MonoBehaviour
         if (collision.gameObject.tag == ("Player"))
         {
             AllowWalk = false;
-            Invoke("EnemyPause", Pausetime);
+            Animator.Play("Enemy1_attack");
+            Invoke("EnemyPause", 1);
         }
-        else if(collision.gameObject.tag == ("PlayerProjectile"))
+        if (collision.gameObject.tag == ("Enemy") || collision.gameObject.tag == ("PlayerProjectile"))
         {
-            //Om fienden nuddar en projectile förstörs fienden
-            lives -= 1;
-            if (lives <= 0) 
-            {
-                Destroy(gameObject);
-            }
+            Rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
+            Rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 

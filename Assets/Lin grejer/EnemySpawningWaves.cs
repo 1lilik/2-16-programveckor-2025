@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemySpawningWaves : MonoBehaviour
@@ -9,23 +10,23 @@ public class EnemySpawningWaves : MonoBehaviour
     public List<GameObject> Enemies;
     int RandomAmountWaves;
     int WaveNumber = 0;
+    public TextMeshProUGUI EnemyCountText;
 
     // Start is called before the first frame update
     void Start()
     {
         //Gör så att en slumässig mängd fiender spawnar på samma gång 
-        RandomAmountWaves = Random.Range(1, 4);
+        RandomAmountWaves = Random.Range(3, 5);
     }
 
     // Update is called once per frame
     void Update()
     {   
-
         if (WaveNumber <= RandomAmountWaves)
         {
             if (RandomAmountEnemies == 0)
             {
-                RandomAmountEnemies = Random.Range(1, 6);
+                RandomAmountEnemies = Random.Range(3, 7);
                 Invoke("SpawnWave", 1);
                 WaveNumber += 1;
             }
@@ -42,9 +43,16 @@ public class EnemySpawningWaves : MonoBehaviour
     {
         if (Enemies.Contains(Enemy))
         {
-            Enemies.Remove(Enemy);
-            Destroy(Enemy);
-            RandomAmountEnemies -= 1;
+            EnemyControll enemyControll = Enemy.GetComponent<EnemyControll>();
+            enemyControll.lives -= 1;
+
+            if (enemyControll.lives <= 0)
+            {
+                enemyControll.Animator.Play("Enemy1_die");
+                Enemies.Remove(Enemy);
+                Destroy(Enemy);
+                RandomAmountEnemies -= 1;
+            }
         }
     }
 

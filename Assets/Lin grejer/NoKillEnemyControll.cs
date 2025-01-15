@@ -7,7 +7,6 @@ public class NoKillEnemyControll : MonoBehaviour
     public Transform Target;
     float speed = 3f;
     bool AllowWalk;
-    public float Pausetime;
     Rigidbody2D rb;
    
     // Start is called before the first frame update
@@ -35,7 +34,7 @@ public class NoKillEnemyControll : MonoBehaviour
         if (collision.gameObject.tag == ("Player"))
         {
             AllowWalk = false;
-            Invoke("EnemyPause", Pausetime);
+            Invoke("EnemyPause", 1);
         } 
         //Gör så att fienderna inte puttas bakåt om de blir nuddade av skotten
         //Innan detta tillägg började fienderna åka bakåt om de blev träffade av ett skott och de fortsatte tills de träffade väggen

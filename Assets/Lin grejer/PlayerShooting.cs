@@ -27,8 +27,6 @@ public class PlayerShooting : MonoBehaviour
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             rb.velocity = transform.right * ProjectileSpeed;
             AllowToShoot = false;
-            
         }
-        
     }
 }

@@ -39,7 +39,6 @@ public class Kontroll : MonoBehaviour
     }
     void Rotate(float angle)
     {
-       
         transform.rotation = Quaternion.Euler(0, 0, angle); 
     }
 }
