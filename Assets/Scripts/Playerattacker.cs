@@ -31,8 +31,9 @@ public class Playerattacker : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
-            // other.GetComponent<Enemy>().TakeDamage(damage);
-            Debug.Log("Enemy hit");
+            EnemySpawningWaves enemyManager = FindObjectOfType<EnemySpawningWaves>();
+            enemyManager.OnEnemyHit(other.gameObject);
+            Debug.Log("Hit");
         }
     }
 }
