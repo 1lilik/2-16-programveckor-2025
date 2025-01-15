@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1500763435}
-  meleeSpeed: 0
+  meleeSpeed: 0.2
   damage: 1
 --- !u!114 &1500763437
 MonoBehaviour:
