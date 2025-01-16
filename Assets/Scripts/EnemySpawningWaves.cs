@@ -6,9 +6,10 @@ using UnityEngine;
 public class EnemySpawningWaves : MonoBehaviour
 {
     public GameObject EnemyPrefab;
+    public GameObject PowerUpPrefab;
     public int RandomAmountEnemies;
     public List<GameObject> Enemies;
-    public int RandomAmountWaves;
+    private int RandomAmountWaves;
     public int WaveNumber = 0;
     public TextMeshProUGUI EnemyCountText;
     public int Damage = 1;
@@ -59,9 +60,16 @@ public class EnemySpawningWaves : MonoBehaviour
                 Enemies.Remove(Enemy);
                 Destroy(Enemy, 1);
                 RandomAmountEnemies -= 1;
-            }
+                
+                Vector2 SpawnPosistion = enemyControll.transform.position;
+                Instantiate(PowerUpPrefab, SpawnPosistion, Quaternion.identity);
+            }            
         }
     }
+
+    
+
+   
 
     public void SpawnWave()
     {

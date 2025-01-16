@@ -18,7 +18,6 @@ public class GameManage : MonoBehaviour
 
     private float feedbackDisplayTime = 2f;
     private Coroutine feedbackCoroutine;
-
     void Start()
     {
         AssignCorrectObject();
@@ -27,6 +26,7 @@ public class GameManage : MonoBehaviour
 
     void AssignCorrectObject()
     {
+
         // Randomly choose one of the 5 objects as the "correct" one
         int randomIndex = Random.Range(0, objects.Length);
         correctObject = objects[randomIndex];
@@ -39,7 +39,9 @@ public class GameManage : MonoBehaviour
         {
             Debug.Log("Correct choice! You survived!");
             ShowFeedback("Correct!", Color.green);
+
             AssignCorrectObject(); // Assign a new correct object
+
         }
         else
         {
@@ -51,8 +53,10 @@ public class GameManage : MonoBehaviour
             if (lives <= 0)
             {
                 Debug.Log("Game Over!");
+
                 ShowFeedback("You die!", Color.red);
                 // Additional game over logic can go here
+
             }
         }
     }
@@ -77,6 +81,7 @@ public class GameManage : MonoBehaviour
 
     void UpdateLivesUI()
     {
+
         // Update the life icons
         for (int i = 0; i < lifeIcons.Length; i++)
         {
@@ -91,6 +96,7 @@ public class GameManage : MonoBehaviour
         }
 
         // Optional: Update the text-based lives display
+
         if (livesText != null)
         {
             livesText.text = "Lives: " + lives;

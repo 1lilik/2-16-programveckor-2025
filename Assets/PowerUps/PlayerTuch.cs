@@ -41,6 +41,7 @@ public class PlayerTuch : MonoBehaviour
                 {
                     StartCoroutine(DoubleDamage());
                 }
+
                
             }
             Destroy(other.gameObject);

@@ -207,6 +207,22 @@ PrefabInstance:
       propertyPath: Particle
       value: 
       objectReference: {fileID: 5753596915413285376, guid: d202c3319bf5cc54c98517cb9269321c, type: 3}
+    - target: {fileID: 4399722849028623940, guid: a591e06639aa25c44a94b7902c234d08, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399722849028623940, guid: a591e06639aa25c44a94b7902c234d08, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399722849028623940, guid: a591e06639aa25c44a94b7902c234d08, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399722849028623940, guid: a591e06639aa25c44a94b7902c234d08, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8703151169266247436, guid: a591e06639aa25c44a94b7902c234d08, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.79

@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
     public CanvasGroup canvasGroup;
     public bool fadein = false;
     public bool fadeout = false;
+    
 
     public float TimeToFade;
 
@@ -51,33 +52,39 @@ public class Door : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (RoomNumber == 1)
-            {
-                //Fade.FadeOut();
-                SceneManager.LoadScene(RoomNames[0]);
-            }
-            else if (RoomNumber == 2)
-            {
-                //Fade.FadeOut();
-                SceneManager.LoadScene(RoomNames[1]);
-            }
-            else if (RoomNumber == 3)
-            {
-                //Fade.FadeOut();
-                SceneManager.LoadScene(RoomNames[2]);
-            }
-            else if (RoomNumber == 4)
-            {
-                //Fade.FadeOut();
-                SceneManager.LoadScene(RoomNames[3]);
-            }
-            else
-            {
-                //Fade.FadeOut();
-                SceneManager.LoadScene(RoomNames[4]);
-            }
+            RoomPicker();
         }
     }
+
+    void RoomPicker()
+    {
+        if (RoomNumber == 1)
+        {
+            FadeOut();
+            SceneManager.LoadScene(RoomNames[0]);
+        }
+        else if (RoomNumber == 2)
+        {
+            FadeOut();
+            SceneManager.LoadScene(RoomNames[1]);
+        }
+        else if (RoomNumber == 3)
+        {
+            FadeOut();
+            SceneManager.LoadScene(RoomNames[2]);
+        }
+        else if (RoomNumber == 4)
+        {
+            FadeOut();
+            SceneManager.LoadScene(RoomNames[3]);
+        }
+        else
+        {
+            FadeOut();
+            SceneManager.LoadScene(RoomNames[4]);
+        }
+    }
+
     public void FadeIn()
     {
         fadein = true;

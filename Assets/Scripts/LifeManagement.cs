@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LifeManagement : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class LifeManagement : MonoBehaviour
     public int Lives = 3;
     public GameObject Particle;
 
-    private AudioSource audioSource;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class LifeManagement : MonoBehaviour
             {
                 Instantiate(Particle, transform.position, Quaternion.identity);
                 Destroy(gameObject);
+                Invoke("LoadGameOver", 2);
             }
         }
         if (collision.gameObject.tag == ("NoKillEnemy"))
@@ -45,7 +47,14 @@ public class LifeManagement : MonoBehaviour
             {
                 Instantiate(Particle, transform.position, Quaternion.identity);
                 Destroy(gameObject);
+                Invoke("LoadGameOver", 2);
             }
         }
+
+        void LoadGameOver()
+        {
+            SceneManager.LoadScene("Game over");
+        }
+
     }
 }
