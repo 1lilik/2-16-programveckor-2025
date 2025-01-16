@@ -1,25 +1,53 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TorchManager : MonoBehaviour
 {
-    public GameObject[] torches; 
+    public GameObject[] torches;
     public Sprite litTorchSprite;
     public Sprite unlitTorchSprite;
-
-    int[] correctSequence; 
+    int[] correctSequence;
     List<int> playerSequence = new List<int>();
     bool puzzleComplete = false;
+    public TextMeshProUGUI Feedback;
+    float CurrentTime;
+    public float CountdownTime = 60;
+    public TextMeshProUGUI CountdownText;
+    string gameOverScene = "Game over";
 
-    private void Start()
+    void Start()
     {
         GenerateRandomSequence();
+        CurrentTime = CountdownTime;
     }
 
-    private void GenerateRandomSequence()
+    void Update()
+    {
+        if (CurrentTime > 0)
+        {
+            CurrentTime -= Time.deltaTime;
+            CountdownText.text = "Time left: " + Mathf.Ceil(CurrentTime).ToString();
+        }
+
+        if (CurrentTime <= 0 && puzzleComplete != true)
+        {
+            CountdownText.text = "Times up! You lost!";
+
+            Invoke("GameOverScene", 2);
+
+        }
+    }
+
+    void GenerateRandomSequence()
     {
         int numberOfTorches = torches.Length;
         correctSequence = new int[numberOfTorches];
+        Feedback.text = "Light the torches in the right order!";
 
         // Initialize the sequence with indices
         for (int i = 0; i < numberOfTorches; i++)
@@ -27,7 +55,6 @@ public class TorchManager : MonoBehaviour
             correctSequence[i] = i;
         }
 
-        // Shuffle the sequence using Fisher-Yates
         for (int i = numberOfTorches - 1; i > 0; i--)
         {
             int randomIndex = Random.Range(0, i + 1);
@@ -35,7 +62,7 @@ public class TorchManager : MonoBehaviour
             correctSequence[i] = correctSequence[randomIndex];
             correctSequence[randomIndex] = temp;
         }
-
+        //Prints the correct sequence in the log
         Debug.Log("Randomized sequence: " + string.Join(", ", correctSequence));
     }
 
@@ -50,32 +77,38 @@ public class TorchManager : MonoBehaviour
         if (playerSequence[playerSequence.Count - 1] != correctSequence[playerSequence.Count - 1])
         {
             // Player lit the wrong torch
+            Feedback.text = "Wrong order try again!";
             ResetPuzzle();
         }
-        else if (playerSequence.Count == correctSequence.Length)
+        else if (playerSequence.Count == correctSequence.Length && CurrentTime >= 0)
         {
             // Player completed the sequence
             CompletePuzzle();
         }
     }
 
-    private void ResetPuzzle()
+    async void ResetPuzzle()
     {
-        Debug.Log("Incorrect sequence! Resetting...");
         playerSequence.Clear();
 
-        // Reset all torches to the unlit state
         foreach (GameObject torch in torches)
         {
             torch.GetComponent<SpriteRenderer>().sprite = unlitTorchSprite;
         }
+        //makes the text "Wrong..." stay for 2000 miliseconds, async is needed for the await
+        await Task.Delay(2000);
+        Feedback.text = "Light the torches in the right order!";
     }
 
-    private void CompletePuzzle()
+    void CompletePuzzle()
     {
         puzzleComplete = true;
-        Debug.Log("Puzzle solved!");
-
-        // You can trigger additional effects here, like opening a door or playing a sound.
+        Feedback.text = "Correct order! You won!";
     }
+
+    void GameOverScene()
+    {
+        SceneManager.LoadSceneAsync(gameOverScene);
+    }
+    
 }

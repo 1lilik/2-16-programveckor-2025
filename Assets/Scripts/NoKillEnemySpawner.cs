@@ -17,7 +17,7 @@ public class NoKillEnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RandomAmountEnemies = Random.Range(1, 6);
+        RandomAmountEnemies = Random.Range(3, 7);
         Invoke("SpawnEnemies", 1);
         CurrentTime = CountdownTime;
     }
