@@ -9,9 +9,13 @@ public class Movement : MonoBehaviour
     {
 <<<<<<< Updated upstream:Assets/Scripts/PlayerMovement.cs
 <<<<<<< Updated upstream:Assets/Scripts/PlayerMovement.cs
+<<<<<<< Updated upstream:Assets/Scripts/PlayerMovement.cs
 
         transform.position = new Vector3(0, 2, 0);
 
+=======
+        transform.position = new Vector3(0, 2, 0);
+>>>>>>> Stashed changes:Assets/PlayerMovement.cs
 =======
         transform.position = new Vector3(0, 2, 0);
 >>>>>>> Stashed changes:Assets/PlayerMovement.cs

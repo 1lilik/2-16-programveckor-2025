@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 using UnityEngine.UI;
 
 public class GameManage : MonoBehaviour
@@ -22,6 +23,8 @@ public class GameManage : MonoBehaviour
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 public class GameManage : MonoBehaviour
 {
@@ -33,6 +36,9 @@ public class GameManage : MonoBehaviour
 
     private float feedbackDisplayTime = 2f; 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -48,10 +54,16 @@ public class GameManage : MonoBehaviour
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // Randomly choose one of the 5 objects as the "correct" one
         int randomIndex = Random.Range(0, objects.Length);
         correctObject = objects[randomIndex];
         Debug.Log("Correct Object: " + correctObject.name);
+=======
+        int randomIndex = Random.Range(0, objects.Length);
+        correctObject = objects[randomIndex];
+        Debug.Log("Correct Object: " + correctObject.name); 
+>>>>>>> Stashed changes
 =======
         int randomIndex = Random.Range(0, objects.Length);
         correctObject = objects[randomIndex];
@@ -72,7 +84,11 @@ public class GameManage : MonoBehaviour
             ShowFeedback("Correct!", Color.green);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             AssignCorrectObject(); // Assign a new correct object
+=======
+            AssignCorrectObject();
+>>>>>>> Stashed changes
 =======
             AssignCorrectObject();
 >>>>>>> Stashed changes
@@ -92,8 +108,11 @@ public class GameManage : MonoBehaviour
                 Debug.Log("Game Over!");
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 ShowFeedback("You die!", Color.red);
                 // Additional game over logic can go here
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -124,6 +143,7 @@ public class GameManage : MonoBehaviour
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // Update the life icons
         for (int i = 0; i < lifeIcons.Length; i++)
         {
@@ -138,6 +158,8 @@ public class GameManage : MonoBehaviour
         }
 
         // Optional: Update the text-based lives display
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
