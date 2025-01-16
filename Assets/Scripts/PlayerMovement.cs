@@ -7,9 +7,13 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+<<<<<<< Updated upstream:Assets/Scripts/PlayerMovement.cs
 
         transform.position = new Vector3(0, 2, 0);
 
+=======
+        transform.position = new Vector3(0, 2, 0);
+>>>>>>> Stashed changes:Assets/PlayerMovement.cs
 
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+<<<<<<< Updated upstream
 using UnityEngine.UI;
 
 public class GameManage : MonoBehaviour
@@ -17,6 +18,18 @@ public class GameManage : MonoBehaviour
     public Sprite brokenHeartSprite; // Assign your "broken heart" sprite here
 
     private float feedbackDisplayTime = 2f;
+=======
+
+public class GameManage : MonoBehaviour
+{
+    public GameObject[] objects; 
+    private GameObject correctObject;
+    public int lives = 3; 
+    public TextMeshProUGUI livesText; 
+    public TextMeshProUGUI feedbackText;
+
+    private float feedbackDisplayTime = 2f; 
+>>>>>>> Stashed changes
     private Coroutine feedbackCoroutine;
 
     void Start()
@@ -27,10 +40,16 @@ public class GameManage : MonoBehaviour
 
     void AssignCorrectObject()
     {
+<<<<<<< Updated upstream
         // Randomly choose one of the 5 objects as the "correct" one
         int randomIndex = Random.Range(0, objects.Length);
         correctObject = objects[randomIndex];
         Debug.Log("Correct Object: " + correctObject.name);
+=======
+        int randomIndex = Random.Range(0, objects.Length);
+        correctObject = objects[randomIndex];
+        Debug.Log("Correct Object: " + correctObject.name); 
+>>>>>>> Stashed changes
     }
 
     public void ObjectInteracted(GameObject interactedObject)
@@ -39,7 +58,11 @@ public class GameManage : MonoBehaviour
         {
             Debug.Log("Correct choice! You survived!");
             ShowFeedback("Correct!", Color.green);
+<<<<<<< Updated upstream
             AssignCorrectObject(); // Assign a new correct object
+=======
+            AssignCorrectObject();
+>>>>>>> Stashed changes
         }
         else
         {
@@ -51,8 +74,11 @@ public class GameManage : MonoBehaviour
             if (lives <= 0)
             {
                 Debug.Log("Game Over!");
+<<<<<<< Updated upstream
                 ShowFeedback("You die!", Color.red);
                 // Additional game over logic can go here
+=======
+>>>>>>> Stashed changes
             }
         }
     }
@@ -77,6 +103,7 @@ public class GameManage : MonoBehaviour
 
     void UpdateLivesUI()
     {
+<<<<<<< Updated upstream
         // Update the life icons
         for (int i = 0; i < lifeIcons.Length; i++)
         {
@@ -91,6 +118,8 @@ public class GameManage : MonoBehaviour
         }
 
         // Optional: Update the text-based lives display
+=======
+>>>>>>> Stashed changes
         if (livesText != null)
         {
             livesText.text = "Lives: " + lives;
