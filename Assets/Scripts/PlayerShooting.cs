@@ -23,7 +23,7 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && AllowToShoot == true)
+        if (Input.GetKeyDown(KeyCode.Mouse0) || (Input.GetKeyDown(KeyCode.Space))&& AllowToShoot == true)
         {
             
             GameObject projectile = Instantiate(Projectile, shootpoint.position, transform.GetChild(0).rotation);

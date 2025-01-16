@@ -23,7 +23,7 @@ public class RangeAnimation : MonoBehaviour
             spriteRenderer.sprite = Fire;
             ActiveFire = true;
         }
-        else if (ActiveFire = true)
+        else if (ActiveFire == true)
         {
             Invoke("ChangeBackSprite", 1f);
         }
