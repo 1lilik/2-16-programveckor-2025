@@ -1609,7 +1609,7 @@ MonoBehaviour:
   litTorchSprite: {fileID: -597806686, guid: 46de844366f21094999b3882be3ae05c, type: 3}
   unlitTorchSprite: {fileID: -1953359084, guid: 46de844366f21094999b3882be3ae05c, type: 3}
   Feedback: {fileID: 1799808117}
-  CountdownTime: 5
+  CountdownTime: 60
   CountdownText: {fileID: 861619437}
 --- !u!4 &2077127721
 Transform:
