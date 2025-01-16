@@ -60,25 +60,16 @@ public class EnemySpawningWaves : MonoBehaviour
                 Enemies.Remove(Enemy);
                 Destroy(Enemy, 1);
                 RandomAmountEnemies -= 1;
-                Die();
+                
+                Vector2 SpawnPosistion = enemyControll.transform.position;
+                Instantiate(PowerUpPrefab, SpawnPosistion, Quaternion.identity);
             }            
         }
     }
 
-    private void Die()
-    {
-        SpawnPowerUp();
-        Destroy(gameObject);
+    
 
-    }
-
-    private void SpawnPowerUp()
-    {
-        Vector2 SpawnPosistion = transform.position;
-
-        Instantiate(PowerUpPrefab, SpawnPosistion, Quaternion.identity);
-
-    }
+   
 
     public void SpawnWave()
     {
