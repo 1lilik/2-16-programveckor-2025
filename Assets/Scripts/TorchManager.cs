@@ -1,31 +1,49 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TorchManager : MonoBehaviour
 {
-    public GameObject[] torches; 
+    public GameObject[] torches;
     public Sprite litTorchSprite;
     public Sprite unlitTorchSprite;
-    int[] correctSequence; 
+    int[] correctSequence;
     List<int> playerSequence = new List<int>();
     bool puzzleComplete = false;
     public TextMeshProUGUI Feedback;
+    float CurrentTime;
+    public float CountdownTime = 60;
+    public TextMeshProUGUI CountdownText;
+    string gameOverScene = "Game over";
 
-
-    private void Start()
+    void Start()
     {
         GenerateRandomSequence();
+        CurrentTime = CountdownTime;
     }
 
-    private void Update()
+    void Update()
     {
+        if (CurrentTime > 0)
+        {
+            CurrentTime -= Time.deltaTime;
+            CountdownText.text = "Time left: " + Mathf.Ceil(CurrentTime).ToString();
+        }
 
+        if (CurrentTime <= 0 && puzzleComplete != true)
+        {
+            CountdownText.text = "Times up! You lost!";
+
+            Invoke("GameOverScene", 2);
+
+        }
     }
 
-    private void GenerateRandomSequence()
+    void GenerateRandomSequence()
     {
         int numberOfTorches = torches.Length;
         correctSequence = new int[numberOfTorches];
@@ -36,7 +54,7 @@ public class TorchManager : MonoBehaviour
         {
             correctSequence[i] = i;
         }
-        
+
         for (int i = numberOfTorches - 1; i > 0; i--)
         {
             int randomIndex = Random.Range(0, i + 1);
@@ -62,7 +80,7 @@ public class TorchManager : MonoBehaviour
             Feedback.text = "Wrong order try again!";
             ResetPuzzle();
         }
-        else if (playerSequence.Count == correctSequence.Length)
+        else if (playerSequence.Count == correctSequence.Length && CurrentTime >= 0)
         {
             // Player completed the sequence
             CompletePuzzle();
@@ -73,11 +91,11 @@ public class TorchManager : MonoBehaviour
     {
         playerSequence.Clear();
 
-        foreach(GameObject torch in torches)
+        foreach (GameObject torch in torches)
         {
             torch.GetComponent<SpriteRenderer>().sprite = unlitTorchSprite;
         }
-        //makes the text "Wrong..." stay for 2000 miliseconds, async void is needed for the await
+        //makes the text "Wrong..." stay for 2000 miliseconds, async is needed for the await
         await Task.Delay(2000);
         Feedback.text = "Light the torches in the right order!";
     }
@@ -87,4 +105,10 @@ public class TorchManager : MonoBehaviour
         puzzleComplete = true;
         Feedback.text = "Correct order! You won!";
     }
+
+    void GameOverScene()
+    {
+        SceneManager.LoadSceneAsync(gameOverScene);
+    }
+    
 }
