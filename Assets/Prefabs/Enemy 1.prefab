@@ -103,7 +103,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   AllowWalk: 0
   lives: 3
-  Animator: {fileID: 4129066778811068280}
+  animator: {fileID: 4129066778811068280}
 --- !u!50 &638469820216017608
 Rigidbody2D:
   serializedVersion: 4
@@ -195,5 +195,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.03125}
+  m_Size: {x: 0.9, y: 0.97}
   m_EdgeRadius: 0

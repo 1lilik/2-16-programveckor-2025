@@ -10,8 +10,10 @@ public class EnemyControll : MonoBehaviour
     float speed = 3f;
     public bool AllowWalk;
     public int lives = 3;
-    public Animator Animator;
+    public Animator animator;
     Rigidbody2D Rigidbody;
+    SpriteRenderer spriteRenderer;
+
 
 
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class EnemyControll : MonoBehaviour
         Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         AllowWalk = true;
         Rigidbody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -31,7 +34,17 @@ public class EnemyControll : MonoBehaviour
         {
             //Fienden rör sig konststant mot spelarens position
             transform.position = Vector2.MoveTowards(transform.position, Target.position, speed * Time.deltaTime);
-            Animator.Play("Enemy1_walking");
+            animator.Play("Enemy1_walking");
+        }
+
+        if (Target.position.x - transform.position.x < 0)
+        {
+
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
         }
     }
 
@@ -41,7 +54,7 @@ public class EnemyControll : MonoBehaviour
         if (collision.gameObject.tag == ("Player"))
         {
             AllowWalk = false;
-            Animator.Play("Enemy1_attack");
+            animator.Play("Enemy1_attack");
             Invoke("EnemyPause", 1);
         }
         if (collision.gameObject.tag == ("Enemy") || collision.gameObject.tag == ("PlayerProjectile"))
@@ -49,6 +62,7 @@ public class EnemyControll : MonoBehaviour
             Rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
             Rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+        
     }
 
     public void EnemyPause()
@@ -62,3 +76,4 @@ public class EnemyControll : MonoBehaviour
     }
 
 }
+

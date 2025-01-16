@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +12,6 @@ public class Door : MonoBehaviour
     public CanvasGroup canvasGroup;
     public bool fadein = false;
     public bool fadeout = false;
-    
 
     public float TimeToFade;
 
@@ -19,6 +19,7 @@ public class Door : MonoBehaviour
     void Start()
     {
         RoomNumber = Random.Range(0, 5);
+        FadeIn();
     }
 
     // Update is called once per frame
@@ -26,24 +27,25 @@ public class Door : MonoBehaviour
     {
         if (fadein == true)
         {
+            if (canvasGroup.alpha > 0)
+            {
+                canvasGroup.alpha -= TimeToFade * Time.deltaTime;
+            }
+            else
+            {
+                fadein = false;
+            }
+        }
+
+        if (fadeout == true)
+        {
             if (canvasGroup.alpha < 1)
             {
                 canvasGroup.alpha += TimeToFade * Time.deltaTime;
-                if (canvasGroup.alpha >= 1)
-                {
-                    fadein = false;
-                }
             }
-        }
-        if (fadeout == true)
-        {
-            if (canvasGroup.alpha >= 0)
+            else
             {
-                canvasGroup.alpha -= TimeToFade * Time.deltaTime;
-                if (canvasGroup.alpha == 0)
-                {
-                    fadeout = false;
-                }
+                fadeout = false;
             }
         }
     }
@@ -56,42 +58,22 @@ public class Door : MonoBehaviour
         }
     }
 
-    void RoomPicker()
+    async void RoomPicker()
     {
-        if (RoomNumber == 1)
-        {
-            FadeOut();
-            SceneManager.LoadScene(RoomNames[0]);
-        }
-        else if (RoomNumber == 2)
-        {
-            FadeOut();
-            SceneManager.LoadScene(RoomNames[1]);
-        }
-        else if (RoomNumber == 3)
-        {
-            FadeOut();
-            SceneManager.LoadScene(RoomNames[2]);
-        }
-        else if (RoomNumber == 4)
-        {
-            FadeOut();
-            SceneManager.LoadScene(RoomNames[3]);
-        }
-        else
-        {
-            FadeOut();
-            SceneManager.LoadScene(RoomNames[4]);
-        }
+        FadeOut();
+        await Task.Delay(2000);
+        SceneManager.LoadScene(RoomNames[RoomNumber-1]);
     }
 
     public void FadeIn()
     {
         fadein = true;
+        canvasGroup.alpha = 1;
     }
 
     public void FadeOut()
     {
         fadeout = true;
+        canvasGroup.alpha = 0;
     }
 }

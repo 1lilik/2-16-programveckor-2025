@@ -8,6 +8,7 @@ public class ProjectileMove : MonoBehaviour
 {
     Rigidbody2D rb;
     public float ProjMaxAliveTime = 1;
+    PlayerShooting playerShooting;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,6 @@ public class ProjectileMove : MonoBehaviour
             //Meddelar Enemyspawning skriptet att en fiende blivit träffad av en projectile
             EnemySpawningWaves enemyManager = FindObjectOfType<EnemySpawningWaves>();
             enemyManager.OnEnemyHit(collision.gameObject);
-
 
             PlayerShooting playershooting = FindObjectOfType<PlayerShooting>();
             playershooting.AllowToShoot = true;

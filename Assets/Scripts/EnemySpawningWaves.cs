@@ -56,7 +56,7 @@ public class EnemySpawningWaves : MonoBehaviour
             if (enemyControll.lives <= 0)
             {
                 enemyControll.AllowWalk = false;
-                enemyControll.Animator.Play("Enemy1_die");
+                enemyControll.animator.Play("Enemy1_die");
                 Enemies.Remove(Enemy);
                 Destroy(Enemy, 1);
                 RandomAmountEnemies -= 1;

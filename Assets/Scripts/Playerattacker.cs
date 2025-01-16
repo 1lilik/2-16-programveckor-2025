@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Playerattacker : MonoBehaviour
 {
-    [SerializeField] private Animator anim;
+    [SerializeField] private Animator animator;
 
     [SerializeField] private float meleeSpeed;
 
@@ -14,12 +14,18 @@ public class Playerattacker : MonoBehaviour
 
     private void Update()
     {
-        if(timeUntilMelee <= 0f) //Trycker man på vänster musknapp så svingar man svärdet
+        
+        if (timeUntilMelee <= 0f) //Trycker man på vänster musknapp så svingar man svärdet
         {
-            if (Input.GetMouseButtonDown(0))
+            
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                anim.SetTrigger("Trigger");
+                Debug.Log("loop körs");
+
+                animator.Play("Playerattack");
                 timeUntilMelee = meleeSpeed; //Cooldown på att svinga med svärdet
+
+              
             }
         }
         else

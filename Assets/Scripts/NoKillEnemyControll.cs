@@ -8,6 +8,8 @@ public class NoKillEnemyControll : MonoBehaviour
     float speed = 3f;
     bool AllowWalk;
     Rigidbody2D rb;
+    public Animator animator;
+    SpriteRenderer spriteRenderer;
    
     // Start is called before the first frame update
     void Start()
@@ -15,7 +17,9 @@ public class NoKillEnemyControll : MonoBehaviour
         Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         AllowWalk = true;
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -24,7 +28,19 @@ public class NoKillEnemyControll : MonoBehaviour
         if (AllowWalk == true)
         {
             //Fienden rör sig konststant mot spelarens position
+            animator.Play("Enemy2_walking");
             transform.position = Vector2.MoveTowards(transform.position, Target.position, speed * Time.deltaTime);
+
+            if (Target.position.x - transform.position.x < 0)
+            {
+                
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
+            
         }
     }
 
@@ -35,6 +51,8 @@ public class NoKillEnemyControll : MonoBehaviour
         {
             AllowWalk = false;
             Invoke("EnemyPause", 1);
+            animator.Play("Enemy2_attack");
+
         } 
         //Gör så att fienderna inte puttas bakåt om de blir nuddade av skotten
         //Innan detta tillägg började fienderna åka bakåt om de blev träffade av ett skott och de fortsatte tills de träffade väggen
