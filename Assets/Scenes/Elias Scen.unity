@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45b6a772aa5a6c14589d51eeb2b1a576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  anim: {fileID: 6365101220936088173}
   meleeSpeed: 0.2
   damage: 1
 --- !u!50 &4568589683072601150
