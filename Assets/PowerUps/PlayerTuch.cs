@@ -34,7 +34,7 @@ public class PlayerTuch : MonoBehaviour
             if (!IsActivate)
             {
                 int RandomN = Random.Range(0, 100);
-                if (RandomN < 40)
+                if (RandomN < 50)
                 {
                     StartCoroutine(SpeedBoost());
                 }
