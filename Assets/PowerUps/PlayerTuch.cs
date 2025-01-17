@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerTuch : MonoBehaviour
@@ -33,14 +34,15 @@ public class PlayerTuch : MonoBehaviour
             if (!IsActivate)
             {
                 int RandomN = Random.Range(0, 100);
-                if (RandomN < 50)
+                if (RandomN < 40)
                 {
                     StartCoroutine(SpeedBoost());
                 }
                 else
-                {
+                { 
                     StartCoroutine(DoubleDamage());
                 }
+                
 
                
             }

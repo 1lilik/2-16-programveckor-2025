@@ -8,6 +8,7 @@ TagManager:
   - PlayerProjectile
   - Border
   - NoKillEnemy
+  - PowerUp
   layers:
   - Default
   - TransparentFX
