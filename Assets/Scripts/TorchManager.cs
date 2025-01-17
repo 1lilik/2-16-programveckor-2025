@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,11 +20,14 @@ public class TorchManager : MonoBehaviour
     public float CountdownTime = 60;
     public TextMeshProUGUI CountdownText;
     string gameOverScene = "Game over";
+    public GameObject Door;
+    public GameObject CountDownText; 
 
     void Start()
     {
         GenerateRandomSequence();
         CurrentTime = CountdownTime;
+        Invoke("DeactivateDoor", 1);
     }
 
     void Update()
@@ -49,7 +53,7 @@ public class TorchManager : MonoBehaviour
         correctSequence = new int[numberOfTorches];
         Feedback.text = "Light the torches in the right order!";
 
-        // Initialize the sequence with indices
+        //Generates the random sequence 
         for (int i = 0; i < numberOfTorches; i++)
         {
             correctSequence[i] = i;
@@ -104,11 +108,16 @@ public class TorchManager : MonoBehaviour
     {
         puzzleComplete = true;
         Feedback.text = "Correct order! You won!";
+        CountDownText.SetActive(false);
+        Door.SetActive(true);
     }
 
     void GameOverScene()
     {
         SceneManager.LoadSceneAsync(gameOverScene);
     }
-    
+    void DeactivateDoor()
+    {
+        Door.SetActive(false);
+    }
 }

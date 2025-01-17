@@ -18,7 +18,7 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RoomNumber = Random.Range(0, 5);
+        RoomNumber = Random.Range(0, 6);
         FadeIn();
     }
 

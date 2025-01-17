@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI Countdown;
     public float CountdownTime = 60;
     private float CurrentTime;
+    public GameObject Door;
 
     // Create the game setup with size x size pieces.
     private void CreateGamePieces(float gapThickness)
@@ -69,6 +70,8 @@ public class GameManager : MonoBehaviour
 
         // Shuffle the game board at the start.
         Shuffle();
+
+        Invoke("DeactivateDoor", 1);
     }
 
     // Update is called once per frame
@@ -81,7 +84,10 @@ public class GameManager : MonoBehaviour
         {
             hasWon = true; // Set the hasWon flag.
             StartCoroutine(DisplayWinMessage()); // Display "YOU WON!" for 10 seconds.
+            Door.SetActive(true);
             return;
+
+            
         }
 
         // On click send out ray to see if we click a piece.
@@ -198,6 +204,10 @@ public class GameManager : MonoBehaviour
                 count++;
             }
         }
+    }
+    void DeactivateDoor()
+    {
+        Door.SetActive(false);
     }
 }
 

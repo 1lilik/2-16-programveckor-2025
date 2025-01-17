@@ -69,11 +69,5 @@ public class EnemyControll : MonoBehaviour
     {
         AllowWalk = true;
     }
-
-    public void TakeDamage()
-    {
-
-    }
-
 }
 

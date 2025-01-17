@@ -18,10 +18,13 @@ public class GameManage : MonoBehaviour
 
     private float feedbackDisplayTime = 2f;
     private Coroutine feedbackCoroutine;
+    public GameObject Door;
+
     void Start()
     {
         AssignCorrectObject();
         UpdateLivesUI();
+        Invoke("DeactivateDoor", 1);
     }
 
     void AssignCorrectObject()
@@ -41,6 +44,7 @@ public class GameManage : MonoBehaviour
             ShowFeedback("Correct!", Color.green);
 
             AssignCorrectObject(); // Assign a new correct object
+            Door.SetActive(true);
 
         }
         else
@@ -101,5 +105,9 @@ public class GameManage : MonoBehaviour
         {
             livesText.text = "Lives: " + lives;
         }
+    }
+    void DeactivateDoor()
+    {
+        Door.SetActive(false);
     }
 }
