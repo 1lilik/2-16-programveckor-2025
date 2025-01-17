@@ -15,6 +15,7 @@ public class GameManage : MonoBehaviour
     public Image[] lifeIcons; // Drag the 3 UI Image objects representing lives
     public Sprite heartSprite; // Assign your "heart" sprite here
     public Sprite brokenHeartSprite; // Assign your "broken heart" sprite here
+    
 
     private float feedbackDisplayTime = 2f;
     private Coroutine feedbackCoroutine;
