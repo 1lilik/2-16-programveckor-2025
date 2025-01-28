@@ -475,6 +475,18 @@ PrefabInstance:
       value: GameBoard
       objectReference: {fileID: 0}
     - target: {fileID: 7838773455507112047, guid: ae9402df215044e47888243ad0691d59, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.2000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838773455507112047, guid: ae9402df215044e47888243ad0691d59, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.2000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838773455507112047, guid: ae9402df215044e47888243ad0691d59, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.2000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838773455507112047, guid: ae9402df215044e47888243ad0691d59, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05
       objectReference: {fileID: 0}
@@ -794,7 +806,7 @@ MonoBehaviour:
   gameTransform: {fileID: 1613021505}
   piecePrefab: {fileID: 1800356332435171808, guid: 650bff735cf0a764b8429b1913b9ab32, type: 3}
   Countdown: {fileID: 155907823}
-  CountdownTime: 60
+  CountdownTime: 5
   Door: {fileID: 881099601}
 --- !u!4 &1040694841
 Transform:

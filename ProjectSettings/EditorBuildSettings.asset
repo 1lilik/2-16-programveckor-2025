@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/FULL GAME SCENES/Menu.unity
-    guid: 26cbd5e20509a0f4da6c3075682b40b2
-  - enabled: 0
     path: Assets/Scenes/Gemensam Scen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/FULL GAME SCENES/Menu.unity
+    guid: 26cbd5e20509a0f4da6c3075682b40b2
   - enabled: 1
     path: Assets/Scenes/FULL GAME SCENES/Minigame 3.unity
     guid: d0791d1b5226a9f41b83b8ace52b0def

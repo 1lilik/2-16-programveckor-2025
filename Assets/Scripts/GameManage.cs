@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManage : MonoBehaviour
@@ -62,6 +63,8 @@ public class GameManage : MonoBehaviour
                 ShowFeedback("You die!", Color.red);
                 // Additional game over logic can go here
 
+                Invoke("GameOver", 1);
+
             }
         }
     }
@@ -110,5 +113,9 @@ public class GameManage : MonoBehaviour
     void DeactivateDoor()
     {
         Door.SetActive(false);
+    }
+    void GameOver()
+    {
+        SceneManager.LoadScene("Game over");
     }
 }
