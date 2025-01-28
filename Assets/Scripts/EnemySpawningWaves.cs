@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawningWaves : MonoBehaviour
 {
@@ -45,6 +46,12 @@ public class EnemySpawningWaves : MonoBehaviour
         else
         {
             EnemyCountText.text = "Kill all of the enemies!";
+        }
+
+        LifeManagement lifeManagement = FindObjectOfType<LifeManagement>();
+        if (lifeManagement.Lives == 0)
+        {
+            SceneManager.LoadScene("Game over");
         }
     }
 

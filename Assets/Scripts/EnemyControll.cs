@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyControll : MonoBehaviour
 {
     public Transform Target;
-    float speed = 3f;
+    public float speed;
     public bool AllowWalk;
     public int lives = 3;
     public Animator animator;

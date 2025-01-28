@@ -7,7 +7,7 @@ public class NextButon:MonoBehaviour
 {
     public void Next()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene("Minigame 3");
 
     }
 

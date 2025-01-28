@@ -24,7 +24,7 @@ public class RangeAnimation : MonoBehaviour
         if (playerShooting.AllowToShoot == true)
         {
             spriteRenderer.sprite = NonFire;
-            audioSource.Play();
+            //audioSource.Play();
         }
         else
         {

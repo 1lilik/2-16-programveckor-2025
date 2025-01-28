@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class NoKillEnemySpawner : MonoBehaviour
@@ -30,6 +31,12 @@ public class NoKillEnemySpawner : MonoBehaviour
         {
             CurrentTime -= Time.deltaTime;
             Countdown.text = "Time left: " + Mathf.Ceil(CurrentTime).ToString();
+
+            LifeManagement lifeManagement = FindObjectOfType<LifeManagement>();
+            if (lifeManagement.Lives == 0)
+            {
+                SceneManager.LoadScene("Game over");
+            }
         }
 
         if (CurrentTime <= 0)

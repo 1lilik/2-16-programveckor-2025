@@ -16,12 +16,13 @@ public class LifeManagement : MonoBehaviour
     {
         Player = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        LifeManagement lifeManagement = GetComponent<LifeManagement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+      
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -35,19 +36,19 @@ public class LifeManagement : MonoBehaviour
             if (Lives == 0)
             {
                 Instantiate(Particle, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-                Invoke("LoadGameOver", 2);
+                Destroy(gameObject, 2);
+                Invoke("LoadGameOver", 1);
             }
         }
         if (collision.gameObject.tag == ("NoKillEnemy"))
         {
             Lives -= 1;
 
-            if (Lives == 0)
+            if (Lives <= 0)
             {
                 Instantiate(Particle, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-                Invoke("LoadGameOver", 2);
+                Destroy(gameObject,2 );
+                Invoke("LoadGameOver", 1);
             }
         }
 
