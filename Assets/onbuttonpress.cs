@@ -17,7 +17,6 @@ public class onbuttonpress : MonoBehaviour
        
     }
 
-
     public void OnButtonPressed()
     {
         SceneManager.LoadScene("Minigame 3");
