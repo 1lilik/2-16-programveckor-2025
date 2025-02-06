@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
         Shuffle();
 
         Invoke("DeactivateDoor", 1);
+        
     }
 
     // Update is called once per frame
@@ -120,9 +122,11 @@ public class GameManager : MonoBehaviour
         else if (CurrentTime <= 0 && !hasWon)
         {
             Countdown.text = "YOU LOST!";
+            Invoke("GameOver", 1.5f);
+
         }
     }
-
+    
     // colCheck is used to stop horizontal moves wrapping.
     private bool SwapIfValid(int i, int offset, int colCheck)
     {
@@ -208,6 +212,10 @@ public class GameManager : MonoBehaviour
     void DeactivateDoor()
     {
         Door.SetActive(false);
+    }
+    void GameOver()
+    {
+        SceneManager.LoadScene("Game over");
     }
 }
 
