@@ -121,15 +121,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: PowerUP
     originalName: 
-    pivot: {x: 0.6153846, y: -0.625}
+    pivot: {x: 0.64285713, y: -0.14999999}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 26
-      height: 24
+      width: 28
+      height: 40
     spriteID: 02a0c4ff8ef35364b9e535f24e864912
     spriteBone: []
     spriteOutline: []
@@ -139,6 +139,326 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: PowerUP_Frame_1
+    originalName: 
+    pivot: {x: 0.60714287, y: -0.099999994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 52
+      width: 28
+      height: 40
+    spriteID: 0e06f1713f870404fbbbaa3edff858cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 52}
+  - name: PowerUP_Frame_2
+    originalName: 
+    pivot: {x: 0.60714287, y: -0.099999994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 100
+      width: 28
+      height: 40
+    spriteID: 4a06761d8d6302948813c809541ac1e6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 100}
+  - name: PowerUP_Frame_3
+    originalName: 
+    pivot: {x: 0.57142854, y: -0.049999997}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 148
+      width: 28
+      height: 40
+    spriteID: f1581d0e91f2bfd48a04ced5a605fb7a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 148}
+  - name: PowerUP_Frame_4
+    originalName: 
+    pivot: {x: 0.57142854, y: -0.049999997}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 196
+      width: 28
+      height: 40
+    spriteID: a4bd8fc74b0f6bc48a634eeadfb88898
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 196}
+  - name: PowerUP_Frame_5
+    originalName: 
+    pivot: {x: 0.57142854, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 4
+      width: 28
+      height: 39
+    spriteID: 5d2a2bfb33c5fb440ac8458f315369ff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 4}
+  - name: PowerUP_Frame_6
+    originalName: 
+    pivot: {x: 0.57142854, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 51
+      width: 28
+      height: 39
+    spriteID: 9f25589516481ce4991bd1b965feec63
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 51}
+  - name: PowerUP_Frame_7
+    originalName: 
+    pivot: {x: 0.5357143, y: -0.051282052}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 98
+      width: 28
+      height: 39
+    spriteID: 479c4a57fc87ef946bf1a78a98e2032a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 98}
+  - name: PowerUP_Frame_8
+    originalName: 
+    pivot: {x: 0.5357143, y: -0.051282052}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 145
+      width: 28
+      height: 39
+    spriteID: 4f1df6fd38c1f294ca74d09e296413b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 145}
+  - name: PowerUP_Frame_9
+    originalName: 
+    pivot: {x: 0.57142854, y: -0.12820514}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 40
+      y: 192
+      width: 28
+      height: 39
+    spriteID: e4ec6782ea440bf4a910992b43f5fcc7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 40, y: 192}
+  - name: PowerUP_Frame_10
+    originalName: 
+    pivot: {x: 0.57142854, y: -0.12820514}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 4
+      width: 28
+      height: 39
+    spriteID: 7a145f5a197a8264684f5c899cb58491
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 4}
+  - name: PowerUP_Frame_11
+    originalName: 
+    pivot: {x: 0.60714287, y: -0.17948718}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 51
+      width: 28
+      height: 39
+    spriteID: 410b4b14916b09f468f442c18c0daa28
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 51}
+  - name: PowerUP_Frame_12
+    originalName: 
+    pivot: {x: 0.60714287, y: -0.17948718}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 98
+      width: 28
+      height: 39
+    spriteID: aa4419ed8c2819043a4135d5671b1bfb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 98}
+  - name: PowerUP_Frame_13
+    originalName: 
+    pivot: {x: 0.64285713, y: -0.23076925}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 145
+      width: 28
+      height: 39
+    spriteID: 2b558c25a78bd994397a1133beb19c06
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 145}
+  - name: PowerUP_Frame_14
+    originalName: 
+    pivot: {x: 0.64285713, y: -0.23076925}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 192
+      width: 28
+      height: 39
+    spriteID: 9fd16a2c8fece9840a53086fb19c5c78
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 192}
+  - name: PowerUP_Frame_15
+    originalName: 
+    pivot: {x: 0.64285713, y: -0.23076925}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 4
+      width: 28
+      height: 39
+    spriteID: d7b8d26d89bb5fa4ea929b61d97e5bf3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 4}
+  - name: PowerUP_Frame_16
+    originalName: 
+    pivot: {x: 0.64285713, y: -0.23076925}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 51
+      width: 28
+      height: 39
+    spriteID: 6da7e814fcf56f947adabe9f3462d69a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 51}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -148,14 +468,142 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: PowerUP
+    - name: PowerUP_Frame_0
       frameIndex: 0
       cellRect:
-        x: 9
-        y: 15
-        width: 26
-        height: 24
+        x: 7
+        y: 6
+        width: 28
+        height: 40
       spriteId: 02a0c4ff8ef35364b9e535f24e864912
+    - name: PowerUP_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 8
+        y: 4
+        width: 28
+        height: 40
+      spriteId: 0e06f1713f870404fbbbaa3edff858cc
+    - name: PowerUP_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 8
+        y: 4
+        width: 28
+        height: 40
+      spriteId: 4a06761d8d6302948813c809541ac1e6
+    - name: PowerUP_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 9
+        y: 2
+        width: 28
+        height: 40
+      spriteId: f1581d0e91f2bfd48a04ced5a605fb7a
+    - name: PowerUP_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 9
+        y: 2
+        width: 28
+        height: 40
+      spriteId: a4bd8fc74b0f6bc48a634eeadfb88898
+    - name: PowerUP_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 9
+        y: 0
+        width: 28
+        height: 39
+      spriteId: 5d2a2bfb33c5fb440ac8458f315369ff
+    - name: PowerUP_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 9
+        y: 0
+        width: 28
+        height: 39
+      spriteId: 9f25589516481ce4991bd1b965feec63
+    - name: PowerUP_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 10
+        y: 2
+        width: 28
+        height: 39
+      spriteId: 479c4a57fc87ef946bf1a78a98e2032a
+    - name: PowerUP_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 10
+        y: 2
+        width: 28
+        height: 39
+      spriteId: 4f1df6fd38c1f294ca74d09e296413b5
+    - name: PowerUP_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 9
+        y: 5
+        width: 28
+        height: 39
+      spriteId: e4ec6782ea440bf4a910992b43f5fcc7
+    - name: PowerUP_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 9
+        y: 5
+        width: 28
+        height: 39
+      spriteId: 7a145f5a197a8264684f5c899cb58491
+    - name: PowerUP_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 8
+        y: 7
+        width: 28
+        height: 39
+      spriteId: 410b4b14916b09f468f442c18c0daa28
+    - name: PowerUP_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 8
+        y: 7
+        width: 28
+        height: 39
+      spriteId: aa4419ed8c2819043a4135d5671b1bfb
+    - name: PowerUP_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 7
+        y: 9
+        width: 28
+        height: 39
+      spriteId: 2b558c25a78bd994397a1133beb19c06
+    - name: PowerUP_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 7
+        y: 9
+        width: 28
+        height: 39
+      spriteId: 9fd16a2c8fece9840a53086fb19c5c78
+    - name: PowerUP_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 7
+        y: 9
+        width: 28
+        height: 39
+      spriteId: d7b8d26d89bb5fa4ea929b61d97e5bf3
+    - name: PowerUP_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 7
+        y: 9
+        width: 28
+        height: 39
+      spriteId: 6da7e814fcf56f947adabe9f3462d69a
     linkedCells: []
     parentIndex: -1
   platformSettings: []
