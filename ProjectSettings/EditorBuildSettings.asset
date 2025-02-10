@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FULL GAME SCENES/Minigame 5.unity
     guid: 4beda81312030c340a81c9edb7a8a69a
+  - enabled: 1
+    path: Assets/oiboi.unity
+    guid: a289e4f9fc5ba104e96b4c4b6b92c0cb
   m_configObjects: {}
