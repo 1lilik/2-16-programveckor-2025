@@ -48,3 +48,4 @@ MonoBehaviour:
   piecePrefab: {fileID: 1800356332435171808, guid: 650bff735cf0a764b8429b1913b9ab32, type: 3}
   Countdown: {fileID: 0}
   CountdownTime: 60
+  Door: {fileID: 0}
